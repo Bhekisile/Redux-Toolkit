@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { ChevronDown, ChevronUp } from '../icons';
 import { removeItem, increase, decrease } from '../features/cart/cartSlice';
-// import PropTypes from prop-types;
 
 const CartItem = ({
   id, img, title, price, amount,
@@ -55,16 +55,12 @@ const CartItem = ({
   );
 };
 
-// CartItem.propTypes = {
-//     book: PropTypes.objectOf(
-//       PropTypes.shape({
-//         id: PropTypes.number.isRequired,
-//         img: PropTypes.any.isRequired,
-//         title: PropTypes.string.isRequired,
-//         price: PropTypes.number.isRequired,
-//         amount: PropTypes.number.isRequired,
-//       }),
-//     ).isRequired,
-//   };
+CartItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  img: PropTypes.node.isRequired,
+  amount: PropTypes.number.isRequired,
+};
 
 export default CartItem;
