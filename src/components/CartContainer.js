@@ -22,9 +22,6 @@ const CartContainer = () => {
       <header>
         <h2>your bag</h2>
       </header>
-      {/* <div>
-        {cartItems.map((item) => <CartItem key={item.id} {...item} />)}
-      </div> */}
       <div>
         {cartItems.map((item) => (
           <CartItem key={item.id} item={item} />

@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { ChevronDown, ChevronUp } from '../icons';
 import { removeItem, increase, decrease } from '../features/cart/cartSlice';
 
-const CartItem = ({
-  id, img, title, price, amount,
-}) => {
+const CartItem = ({ item }) => {
+  const {
+    id, img, title, price, amount,
+  } = item;
   const dispatch = useDispatch();
+  // console.log('title', title);
   return (
     <article className="cart-item">
       <img src={img} alt={title} />
@@ -56,11 +58,15 @@ const CartItem = ({
 };
 
 CartItem.propTypes = {
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
-  img: PropTypes.node.isRequired,
-  amount: PropTypes.number.isRequired,
+  item: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      price: PropTypes.string.isRequired,
+      img: PropTypes.node.isRequired,
+      amount: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
 };
 
 export default CartItem;
